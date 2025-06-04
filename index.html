@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Scarpa - Ipnosi Clinica</title>
+    <style>
+        .testimonial {
+      font-style: italic;
+      margin-bottom: 1rem;
+      border-left: 4px solid #1e3c72;
+      padding-left: 1rem;
+    }
+    .testimonial strong {
+      display: block;
+      margin-top: 0.5rem;
+      color: #1e3c72;
+    }
+form input, form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    form button {
+      background: #1e3c72;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #2c3e50;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: #34495e;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #2c3e50;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            color: #2c3e50;
+            position: relative;
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 62, 80, 0.05);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #2c3e50;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            color: #34495e;
+            font-style: italic;
+        }
+
+        .cta-button {
+            background: #2c3e50;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid #2c3e50;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #2c3e50;
+            border: 2px solid #2c3e50;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background: #2c3e50;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Chi Sono Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: #2c3e50;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .credentials {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: #ffffff;
+            border-radius: 8px;
+            border-left: 4px solid #2c3e50;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .credential-icon {
+            font-size: 1.3rem;
+            margin-right: 1.5rem;
+            color: #2c3e50;
+        }
+
+        /* Servizi Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 3px solid #ecf0f1;
+            border: 1px solid #ecf0f1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-top-color: #2c3e50;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Contatti Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: #2c3e50;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ecf0f1;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ecf0f1;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c3e50;
+        }
+
+        .submit-btn {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            background: #34495e;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 3px solid #34495e;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+         <a href="#" class="logo">Dr. Christian Scarpa</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#chi-sono">Chi Sono</a></li>
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Ipnosi Clinica</h1>
+                <p>Approcci scientifici e metodologie evidence-based per il trattamento professionale attraverso l'ipnosi clinica</p>
+                <a href="#contatti" class="cta-button">Richiedi Consulenza</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="chi-sono">
+        <div class="container">
+            <h2 class="section-title">Chi Sono</h2>
+            <div class="about-content">
+                <div>
+                    <div class="profile-card">
+                        <div class="profile-img">🩺</div>
+                        <h3>Christian Scarpa</h3>
+                        <p>Infermiere ed Esperto in Ipnosi Clinica</p>
+                    </div>
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <span class="credential-icon">🎓</span>
+                            <div>
+                                <strong>Formazione C.I.I.C.S.</strong><br>
+                                Centro Italiano di Ipnosi Clinica Sperimentale "F.Granone" - Torino
+                            </div>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">📚</span>
+                            <div>
+                                <strong>Laurea in Infermieristica</strong><br>
+                                Università degli Studi di Roma "La Sapienza"
+                            </div>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">🏥</span>
+                            <div>
+                                <strong>Reparto Malattie Infettive</strong><br>
+                                Ospedale "A. Perrino" - Brindisi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>Sono Christian Scarpa, infermiere laureato presso l'Università degli Studi di Roma "La Sapienza" ed esperto in Ipnosi Clinica, formato presso il prestigioso <a href="https://www.ciics.it/">Centro Italiano di Ipnosi Clinica Sperimentale(C.I.I.C.S.)</a> "F.Granone" di Torino.</p>
+                    
+                    <p>La mia attività professionale si sviluppa presso il Reparto di Malattie Infettive dell'Ospedale "A. Perrino" di Brindisi, dove integro competenze cliniche e tecniche di ipnosi terapeutica per offrire un approccio multidisciplinare alla cura del paziente.</p>
+                    
+                    <p>La formazione specialistica in ipnosi clinica mi consente di applicare metodologie scientificamente validate per il trattamento di diverse condizioni che impattano significativamente sulla qualità della vita del paziente. Il mio approccio si basa rigorosamente su protocolli evidence-based e su una valutazione individualizzata delle necessità terapeutiche.</p>
+                    
+                    <p>L'ipnosi clinica rappresenta uno strumento terapeutico riconosciuto dalla comunità scientifica internazionale per il trattamento di disturbi del dolore, dell'ansia, dell'insonnia e per il supporto nel superamento di fobie e dipendenze comportamentali.</p>
+                <p>Appassionato di Motorsport, ho fondato la <a href="https://christianscarpa.github.io/NeuroRacing/">Neuroracing</a>, con lo scopo di aiutare i piloti reali e di simracing a migliorare le loro abilità</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servizi">
+        <div class="container">
+            <h2 class="section-title">I Miei Servizi</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3 class="service-title">Gestione del Dolore</h3>
+                    <p>Tecniche di ipnosi clinica per la gestione del dolore cronico e acuto, riducendo la percezione dolorosa e migliorando la qualità della vita.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🌱</div>
+                    <h3 class="service-title">Controllo dell'Ansia</h3>
+                    <p>Percorsi personalizzati per gestire stati ansiosi, attacchi di panico e stress, attraverso tecniche di rilassamento profondo.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">😴</div>
+                    <h3 class="service-title">Trattamento dell'Insonnia</h3>
+                    <p>Approcci specifici per ristabilire un sonno riparatore e naturale, migliorando il riposo notturno e il benessere diurno.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🦋</div>
+                    <h3 class="service-title">Superamento delle Fobie</h3>
+                    <p>Tecniche mirate per affrontare e superare fobie specifiche, liberando la persona dalle limitazioni che esse comportano.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🚭</div>
+                    <h3 class="service-title">Supporto per Dipendenze</h3>
+                    <p>Percorsi di supporto per liberarsi da dipendenze comportamentali, rafforzando la motivazione al cambiamento.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🧘</div>
+                    <h3 class="service-title">Benessere Psicofisico</h3>
+                    <p>Sessioni per il miglioramento generale del benessere, la gestione dello stress e il potenziamento delle risorse personali.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏁</div>
+                    <h3 class="service-title">Miglioramento delle Prestazioni</h3>
+                    <p>Fondatore della <a href="https://christianscarpa.github.io/NeuroRacing/">Neuroracing</a>, aiuto i piloti reali e di simracing a potenziare le loro capacità di gestire emotività, paure ed errori in pista</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="service-card">
+      <h2>Testimonianze</h2>
+      <div class="testimonial">
+        "Grazie a Christian sono riuscita a superare la mia paura di volare. Un'esperienza incredibile!"
+        <strong>- Laura R.</strong>
+      </div>
+      <div class="testimonial">
+        "L'insonnia mi stava distruggendo. Dopo poche sedute con Christian ho ripreso a dormire serenamente."
+        <strong>- Marco P.</strong>
+      </div>
+      <div class="testimonial">
+        "Il percorso con Christian ha migliorato la mia concentrazione in gara. Ora corro più lucido e rilassato."
+        <strong>- Alex, simracer</strong>
+      </div>
+    </div>
+
+    <section id="contatti">
+        <div class="container">
+            <h2 class="section-title">Contatti</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem;">Informazioni di Contatto</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Ubicazione</strong><br>
+                            Brindisi, Puglia
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🏥</span>
+                        <div>
+                            <strong>Luogo di Lavoro</strong><br>
+                            Ospedale "A. Perrino" - Reparto Malattie Infettive
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">⏰</span>
+                        <div>
+                            <strong>Disponibilità</strong><br>
+                            Su appuntamento<br>
+                            Consultazioni individuali
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                        <p><strong>Nota Importante:</strong> Tutti i trattamenti di ipnosi clinica sono condotti secondo protocolli scientifici e standard professionali. La prima consulenza include sempre una valutazione completa delle esigenze individuali.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                     <h2>Mail</h2>
+      <p>Per informazioni o appuntamenti, scrivimi a <a href="mailto:hypnotistchristian@gmail.com">hypnotistchristian@gmail.com</a> oppure compila il modulo qui sotto.</p>
+      <form action="mailto:hypnotistchristian@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="Nome" placeholder="Il tuo nome" required>
+        <input type="email" name="Email" placeholder="La tua email" required>
+        <textarea name="Messaggio" rows="5" placeholder="Scrivi il tuo messaggio..." required></textarea>
+        <button type="submit">Invia Messaggio</button>
+      </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Christian Scarpa - Ipnosi Clinica. Tutti i diritti riservati.</p>
